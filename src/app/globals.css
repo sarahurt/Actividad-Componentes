@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, icesi;
+}
+
+@plugin "daisyui/theme" {
+  name: "icesi";
+  default: false;
+  prefersdark: false;
+  color-scheme: light;
+
+  /* Colores de marca y rol semántico */
+  --color-primary: #5454e9;
+  --color-primary-content: #ffffff;
+  --color-secondary: #865cf0;
+  --color-secondary-content: #ffffff;
+  --color-accent: #e9683b;
+  --color-accent-content: #ffffff;
+  --color-success: #4cb979;
+  --color-success-content: #ffffff;
+  --color-warning: #e4eb60;
+  --color-warning-content: #1e293b;
+  --color-error: #ef4444;
+  --color-error-content: #ffffff;
+  --color-neutral: #1e293b;
+  --color-neutral-content: #ffffff;
+  --color-info: #5454e9;
+  --color-info-content: #ffffff;
+
+  /* Superficies de fondo y texto base */
+  --color-base-100: #ffffff;
+  --color-base-200: #f8fafc;
+  --color-base-300: #e2e8f0;
+  --color-base-content: #0f172a;
+
+  /* Radio de bordes redondeados */
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
+}
