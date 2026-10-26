@@ -12,11 +12,10 @@ export function CatalogItem({ number, name, children }: CatalogItemProps) {
   return (
     <article className="card bg-base-100 border border-[#cecfd4] shadow-sm">
       <div className="card-body gap-4">
-        <h3 className="flex items-center gap-3 text-base font-bold sm:text-lg">
-          <span className="badge badge-primary font-mono">{number}</span>
-          {name}
+        <h3 className="text-base font-semibold sm:text-lg">
+          {number}. {name}
         </h3>
-        <div>{children}</div>
+        <div className="font-normal">{children}</div>
       </div>
     </article>
   );

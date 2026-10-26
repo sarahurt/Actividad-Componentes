@@ -1,5 +1,12 @@
 import type { Metadata } from 'next';
+import { Comfortaa } from 'next/font/google';
 import './globals.css';
+
+// Fuente Comfortaa de Google Fonts, cargada y optimizada por Next.js
+const comfortaa = Comfortaa({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -16,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" data-theme="icesi">
-      <body className="min-h-screen bg-base-200 text-base-content">{children}</body>
+      <body className={`${comfortaa.className} min-h-screen bg-base-200 text-base-content`}>{children}</body>
     </html>
   );
 }
