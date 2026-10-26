@@ -14,6 +14,14 @@ const typeClasses = {
   error: 'alert-error',
 };
 
+// Color del botón de acción según el tipo (azul para info, como el resto del banner)
+const actionClasses = {
+  info: 'btn-info',
+  success: 'btn-success',
+  warning: 'btn-warning',
+  error: 'btn-error',
+};
+
 // Trazo SVG del icono según el tipo de alerta
 const iconPaths = {
   info: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
@@ -38,24 +46,27 @@ export function AlertBanner({
     <div
       role="alert"
       aria-live="polite"
-      className={`alert alert-soft ${typeClasses[type]} alert-vertical sm:alert-horizontal w-full shadow-sm`}
+      className={`alert alert-soft ${typeClasses[type]} alert-vertical sm:alert-horizontal w-full rounded-2xl border border-current/30 px-5 py-4 text-left`}
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6 shrink-0 stroke-current"
-        fill="none"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={iconPaths[type]} />
-      </svg>
+      {/* Icono dentro de un contenedor tonal redondeado */}
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-current/10">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5 stroke-current"
+          fill="none"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={iconPaths[type]} />
+        </svg>
+      </span>
       <div>
         {/* Título en color base para cumplir contraste WCAG AA (el amarillo sobre blanco no lo cumple) */}
         <h3 className="font-bold text-base-content">{title}</h3>
-        <p className="text-sm text-base-content/80">{description}</p>
+        <p className="text-xs text-base-content/70">{description}</p>
       </div>
       {actionLabel && (
-        <button type="button" onClick={onActionClick} className="btn btn-xs btn-outline">
+        <button type="button" onClick={onActionClick} className={`btn btn-xs btn-outline ${actionClasses[type]} bg-base-100`}>
           {actionLabel}
         </button>
       )}

@@ -7,22 +7,22 @@ interface StatusBadgeProps {
   className?: string;
 }
 
-// Diccionario interno: estado semántico -> color del tema icesi
+// Diccionario interno: estado semántico -> color tonal del tema icesi
 const statusClasses = {
   active: 'badge-success', // Verde Icesi
   pending: 'badge-secondary', // Morado Icesi (en revisión)
-  danger: 'badge-error',
+  danger: 'badge-accent', // Naranja Icesi
   neutral: 'badge-neutral',
 };
 
 /**
- * Insignia de estado con punto luminoso.
+ * Insignia de estado en forma de píldora tonal con punto luminoso.
  * Componente 100% visual: Server Component, sin 'use client'.
  */
 export function StatusBadge({ status, label, hasPulse = true, className = '' }: StatusBadgeProps) {
   return (
     <span
-      className={`badge badge-outline ${statusClasses[status]} inline-flex items-center gap-2 ${className}`}
+      className={`badge badge-soft ${statusClasses[status]} inline-flex items-center gap-2 rounded-full border border-current/20 px-3 py-3 text-xs font-semibold ${className}`}
     >
       <span
         aria-hidden="true"

@@ -40,7 +40,7 @@ export function UserAvatar({
     <div className="flex items-center gap-4">
       <div className={`avatar ${isOnline ? 'online' : 'offline'}`}>
         <div
-          className={`${sizeClasses[size]} rounded-full ring ring-primary ring-offset-base-100 ring-offset-2`}
+          className={`${sizeClasses[size]} rounded-full ring-2 ring-primary ring-offset-base-100 ring-offset-2`}
         >
           {avatarUrl ? (
             <img src={avatarUrl} alt={`Fotografía de perfil de ${name}`} />
@@ -56,14 +56,20 @@ export function UserAvatar({
       </div>
 
       <div className="min-w-0">
-        <p className="font-bold text-base-content">{name}</p>
-        <div className="mt-1 flex flex-wrap items-center gap-2">
-          <span className="badge badge-primary badge-xs">{role}</span>
-          {program && <span className="text-xs text-base-content/70">{program}</span>}
+        {/* Nombre con el badge de rol al lado */}
+        <div className="flex flex-wrap items-center gap-2">
+          <p className="font-bold text-base-content">{name}</p>
+          <span className="badge badge-primary badge-xs font-semibold uppercase">{role}</span>
         </div>
+        {program && <p className="text-xs text-base-content/70">{program}</p>}
         {locationText && (
-          <p className="mt-1 text-xs text-base-content/60">
-            {isOnline ? 'En línea' : 'Desconectado'} · {locationText}
+          <p
+            className={`mt-1 flex items-center gap-1.5 text-xs font-medium ${
+              isOnline ? 'text-success' : 'text-base-content/50'
+            }`}
+          >
+            <span aria-hidden="true" className="h-2 w-2 rounded-full bg-current" />
+            {isOnline ? 'Disponible en' : 'Desconectado ·'} {locationText}
           </p>
         )}
       </div>
