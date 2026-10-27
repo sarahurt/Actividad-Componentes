@@ -8,10 +8,12 @@ import { ToastNotification } from '@/shared/components/ui/toast-notification';
  * Demo del Toast: el estado (mostrar/ocultar) y el temporizador viven aquí.
  */
 export function ToastNotificationDemo() {
+  // Controla si la notificación se ve o no
   const [isVisible, setIsVisible] = useState(false);
 
   const showToast = () => {
     setIsVisible(true);
+    // La notificación se oculta sola a los 5 segundos
     setTimeout(() => setIsVisible(false), 5000);
   };
 

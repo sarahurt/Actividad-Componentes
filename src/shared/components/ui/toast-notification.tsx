@@ -39,6 +39,7 @@ export function ToastNotification({
   variant = 'success',
   onClose,
 }: ToastNotificationProps) {
+  // toast-top toast-end: la notificación flota arriba a la derecha de la pantalla
   return (
     <div className="toast toast-top toast-end z-50">
       <div
@@ -68,6 +69,7 @@ export function ToastNotification({
           <h3 className="font-bold">{title}</h3>
           <p className="text-xs text-base-content/70 break-words">{message}</p>
         </div>
+        {/* La X para cerrar solo aparece si se le pasa la función onClose */}
         {onClose && (
           <button
             type="button"

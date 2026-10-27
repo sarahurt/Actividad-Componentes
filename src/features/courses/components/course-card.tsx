@@ -68,11 +68,13 @@ export function CourseCard({
         </div>
 
         <div className="card-actions mt-2 justify-end">
+          {/* Lleva a la página del sílabo (la URL llega por la prop syllabusUrl) */}
           {syllabusUrl && (
             <Link href={syllabusUrl} className="btn btn-sm btn-ghost">
               Ver sílabo
             </Link>
           )}
+          {/* Lleva al aula del curso (la URL llega por la prop courseUrl) */}
           <Link href={courseUrl} className="btn btn-sm btn-primary">
             Entrar al Aula
           </Link>

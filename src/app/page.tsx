@@ -2,11 +2,15 @@ import { StatusBadge } from '@/shared/components/ui/status-badge';
 import { UserAvatar } from '@/shared/components/ui/user-avatar';
 import { StepProgressTracker } from '@/shared/components/ui/step-progress-tracker';
 import { CourseCard } from '@/features/courses/components/course-card';
+import { AcademicAppNavbar } from '@/shared/components/ui/academic-app-navbar';
+import { SprintAccordionPanel } from '@/features/projects/components/sprint-accordion-panel';
 import { CatalogItem } from './_components/catalog-item';
 import { ActionButtonDemo } from './_components/action-button-demo';
 import { AlertBannerDemo } from './_components/alert-banner-demo';
 import { ToastNotificationDemo } from './_components/toast-notification-demo';
 import { StudentTableDemo } from './_components/student-table-demo';
+import { SubmissionModalDemo } from './_components/submission-modal-demo';
+import { FacultyProfileDemo } from './_components/faculty-profile-demo';
 
 export const metadata = {
   title: 'Catálogo de componentes',
@@ -20,10 +24,10 @@ export const metadata = {
 export default function HomePage() {
   return (
     <main className="mx-auto w-full max-w-5xl space-y-12 px-4 py-8">
-      <h1 className="text-2xl font-bold sm:text-3xl">Componentes con daisyUI</h1>
+      <h1 className="text-2xl font-bold sm:text-3xl [-webkit-text-stroke:0.8px]">Componentes con daisyUI</h1>
 
       <section className="space-y-6" aria-labelledby="nivel-1">
-        <h2 id="nivel-1" className="border-b border-[#cecfd4] pb-2 text-xl font-bold text-primary sm:text-2xl">
+        <h2 id="nivel-1" className="border-b border-[#cecfd4] pb-2 text-xl font-bold text-primary sm:text-2xl [-webkit-text-stroke:0.7px]">
           Nivel 1: Átomos
         </h2>
 
@@ -69,7 +73,7 @@ export default function HomePage() {
       </section>
 
       <section className="space-y-6" aria-labelledby="nivel-2">
-        <h2 id="nivel-2" className="border-b border-[#cecfd4] pb-2 text-xl font-bold text-primary sm:text-2xl">
+        <h2 id="nivel-2" className="border-b border-[#cecfd4] pb-2 text-xl font-bold text-primary sm:text-2xl [-webkit-text-stroke:0.7px]">
           Nivel 2: Moléculas
         </h2>
         <CatalogItem number="08" name="Tarjeta de Asignatura con Barra de Progreso">
@@ -118,10 +122,64 @@ export default function HomePage() {
       </section>
 
       <section className="space-y-6" aria-labelledby="nivel-3">
-        <h2 id="nivel-3" className="border-b border-[#cecfd4] pb-2 text-xl font-bold text-primary sm:text-2xl">
+        <h2 id="nivel-3" className="border-b border-[#cecfd4] pb-2 text-xl font-bold text-primary sm:text-2xl [-webkit-text-stroke:0.7px]">
           Nivel 3: Organismos
         </h2>
-        {/* Aquí van los 4 componentes del Nivel 3 */}
+        <CatalogItem number="16" name="Barra de Navegación de Aplicación con Menú de Usuario">
+          <AcademicAppNavbar
+            brandName="Portal Académico Icesi"
+            user={{
+              name: 'Valeria Cifuentes',
+              avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=96',
+              notificationsCount: 3,
+              currentTerm: 'Periodo 2026-2',
+            }}
+          />
+        </CatalogItem>
+
+        <CatalogItem number="18" name="Diálogo Modal de Confirmación de Entrega">
+          <SubmissionModalDemo />
+        </CatalogItem>
+
+        <CatalogItem number="19" name="Tarjeta de Perfil Docente con Pestañas y Horarios">
+          <FacultyProfileDemo />
+        </CatalogItem>
+
+        <CatalogItem number="20" name="Tablero de Entregables de Sprint en Acordeón Colapsable">
+          <SprintAccordionPanel
+            sprints={[
+              {
+                sprintNumber: 1,
+                title: 'Estructura por features y tema icesi',
+                status: 'completed',
+                tasks: [
+                  { description: 'Configurar Tailwind v4 y daisyUI 5', isDone: true },
+                  { description: 'Crear el tema institucional icesi', isDone: true },
+                ],
+              },
+              {
+                sprintNumber: 2,
+                title: 'Componentes átomos y moléculas',
+                status: 'in_progress',
+                isDefaultOpen: true,
+                tasks: [
+                  { description: 'ActionButton con estado de carga', isDone: true },
+                  { description: 'CourseCard con barra de progreso', isDone: true },
+                  { description: 'Toast de confirmación de entrega', isDone: false },
+                ],
+              },
+              {
+                sprintNumber: 3,
+                title: 'Organismos e integración con Login',
+                status: 'pending',
+                tasks: [
+                  { description: 'Navbar con menú de usuario', isDone: false },
+                  { description: 'Modal de confirmación de entrega', isDone: false },
+                ],
+              },
+            ]}
+          />
+        </CatalogItem>
       </section>
     </main>
   );

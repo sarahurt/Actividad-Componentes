@@ -53,6 +53,7 @@ export function StudentTableRow({
         <span className={`badge badge-sm ${badge.className}`}>{badge.label}</span>
       </td>
       <td className="text-right">
+        {/* Botón "Ver notas": ejecuta la función que le pasen por onViewGradesClick */}
         <button
           type="button"
           onClick={onViewGradesClick}

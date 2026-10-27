@@ -65,6 +65,7 @@ export function AlertBanner({
         <h3 className="font-bold text-base-content">{title}</h3>
         <p className="text-xs text-base-content/70">{description}</p>
       </div>
+      {/* El botón solo aparece si se le pasa un texto en actionLabel */}
       {actionLabel && (
         <button type="button" onClick={onActionClick} className={`btn btn-xs btn-outline ${actionClasses[type]} bg-base-100`}>
           {actionLabel}

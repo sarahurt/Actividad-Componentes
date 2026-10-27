@@ -34,6 +34,7 @@ const students = [
  * Demo de la tabla: maneja el clic de "Ver notas" con useState.
  */
 export function StudentTableDemo() {
+  // Guarda el nombre del estudiante al que se le dio "Ver notas"
   const [selectedStudent, setSelectedStudent] = useState<string | null>(null);
 
   return (

@@ -15,6 +15,7 @@ export function AlertBannerDemo() {
         title="Periodo de Adición y Cancelación"
         description="Recuerda que el sistema Banner cerrará la inscripción el viernes a las 18:00 hrs."
         actionLabel="Ver Calendario"
+        // Al hacer clic en "Ver Calendario" se muestra el mensaje de abajo
         onActionClick={() => setClicked(true)}
       />
       {clicked && (

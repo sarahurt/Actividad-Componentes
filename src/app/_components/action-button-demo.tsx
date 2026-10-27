@@ -8,10 +8,12 @@ import { ActionButton } from '@/shared/components/ui/action-button';
  * por eso este archivo sí lleva 'use client'.
  */
 export function ActionButtonDemo() {
+  // Guarda si el botón está cargando (true) o no (false)
   const [isLoading, setIsLoading] = useState(false);
 
   const handleDownload = () => {
     setIsLoading(true);
+    // Simula una descarga: a los 2 segundos el botón vuelve a la normalidad
     setTimeout(() => setIsLoading(false), 2000);
   };
 

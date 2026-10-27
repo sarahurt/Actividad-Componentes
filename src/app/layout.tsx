@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" data-theme="icesi">
-      <body className={`${comfortaa.className} min-h-screen bg-base-200 text-base-content`}>{children}</body>
+      <body className={`${comfortaa.className} min-h-screen bg-base-200 text-base-content [-webkit-text-stroke:0.25px]`}>{children}</body>
     </html>
   );
 }
